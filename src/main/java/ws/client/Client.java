@@ -14,7 +14,7 @@ import java.net.URL;
 public class Client {
     public static void main(String[] args) throws MalformedURLException {
         URL url = new URL("http://localhost:8080/doc?wsdl");
-        QName qname = new QName("http://bottomup.server.ws/", "DocumentServiceImplService");
+        QName qname = new QName("http://topdown.server.ws/", "DocumentWS");
         Service service = Service.create(url, qname);
         DocumentService hello = service.getPort(DocumentService.class);
         System.out.println(hello.getHelloString("LOLOLOL"));

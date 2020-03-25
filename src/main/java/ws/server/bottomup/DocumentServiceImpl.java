@@ -15,28 +15,24 @@ public class DocumentServiceImpl implements DocumentService{
 
     private DocumentRepository documentRepository = new DocumentRepository();
 
-    @WebMethod
-    public void createDoc(int id, String purpose, Double amount, String accountFrom, String accountTo) {
-        documentRepository.addDocument(id, purpose, amount, accountFrom, accountTo);
-    }
 
-    @WebMethod
-    public void deleteDoc(int id) {
-        documentRepository.deleteDocument(id);
-    }
-
-    @WebMethod
-    public Document getDocumentById(int id) {
-        return documentRepository.getDocumentById(id);
-    }
-
-    @WebMethod
-    public List<Document> getDocumentObjectList() {
-        return documentRepository.getDocumentList();
-    }
-
-    @WebMethod
     public String getHelloString(String name) {
-        return "Hello, " + name + "!";
+        return "HELLO LOLOLOLOLOLOLOLL";
+    }
+
+    public void createDoc(int id, String purpose, Double amount, String accountFrom, String accountTo) {
+
+    }
+
+    public void deleteDoc(int id) {
+
+    }
+
+    public Document getDocumentById(int id) {
+        return new Document();
+    }
+
+    public List<Document> getDocumentObjectList() {
+        return null;
     }
 }

@@ -1,0 +1,119 @@
+<definitions
+        xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+        xmlns:tns="http://bottomup.server.ws/"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:wsam="http://www.w3.org/1999/xhtml"
+        targetNamespace="http://bottomup.server.ws/"
+        name="DocumentServiceImplService">
+    <types>
+        <xsd:schema>
+            <xsd:import namespace="http://bottomup.server.ws/" schemaLocation="doc.xsd"/>
+        </xsd:schema>
+    </types>
+    <message name="deleteDoc">
+        <part name="parameters" element="tns:deleteDoc"/>
+    </message>
+    <message name="deleteDocResponse">
+        <part name="parameters" element="tns:deleteDocResponse"/>
+    </message>
+    <message name="getDocumentById">
+        <part name="parameters" element="tns:getDocumentById"/>
+    </message>
+    <message name="getDocumentByIdResponse">
+        <part name="parameters" element="tns:getDocumentByIdResponse"/>
+    </message>
+    <message name="getDocumentObjectList">
+        <part name="parameters" element="tns:getDocumentObjectList"/>
+    </message>
+    <message name="getDocumentObjectListResponse">
+        <part name="parameters" element="tns:getDocumentObjectListResponse"/>
+    </message>
+    <message name="getHelloString">
+        <part name="parameters" element="tns:getHelloString"/>
+    </message>
+    <message name="getHelloStringResponse">
+        <part name="parameters" element="tns:getHelloStringResponse"/>
+    </message>
+    <message name="createDoc">
+        <part name="parameters" element="tns:createDoc"/>
+    </message>
+    <message name="createDocResponse">
+        <part name="parameters" element="tns:createDocResponse"/>
+    </message>
+    <portType name="DocumentService">
+        <operation name="deleteDoc">
+            <input wsam:Action="http://bottomup.server.ws/DocumentService/deleteDocRequest" message="tns:deleteDoc"/>
+            <output wsam:Action="http://bottomup.server.ws/DocumentService/deleteDocResponse" message="tns:deleteDocResponse"/>
+        </operation>
+        <operation name="getDocumentById">
+            <input wsam:Action="http://bottomup.server.ws/DocumentService/getDocumentByIdRequest" message="tns:getDocumentById"/>
+            <output wsam:Action="http://bottomup.server.ws/DocumentService/getDocumentByIdResponse" message="tns:getDocumentByIdResponse"/>
+        </operation>
+        <operation name="getDocumentObjectList">
+            <input wsam:Action="http://bottomup.server.ws/DocumentService/getDocumentObjectListRequest" message="tns:getDocumentObjectList"/>
+            <output wsam:Action="http://bottomup.server.ws/DocumentService/getDocumentObjectListResponse" message="tns:getDocumentObjectListResponse"/>
+        </operation>
+        <operation name="getHelloString">
+            <input wsam:Action="http://bottomup.server.ws/DocumentService/getHelloStringRequest" message="tns:getHelloString"/>
+            <output wsam:Action="http://bottomup.server.ws/DocumentService/getHelloStringResponse" message="tns:getHelloStringResponse"/>
+        </operation>
+        <operation name="createDoc">
+            <input wsam:Action="http://bottomup.server.ws/DocumentService/createDocRequest" message="tns:createDoc"/>
+            <output wsam:Action="http://bottomup.server.ws/DocumentService/createDocResponse" message="tns:createDocResponse"/>
+        </operation>
+    </portType>
+    <binding name="DocumentServiceImplPortBinding" type="tns:DocumentService">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <operation name="deleteDoc">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="getDocumentById">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="getDocumentObjectList">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="getHelloString">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="createDoc">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="DocumentServiceImplService">
+        <port name="DocumentServiceImplPort" binding="tns:DocumentServiceImplPortBinding">
+            <soap:address location="http://localhost:8080/doc"/>
+        </port>
+    </service>
+</definitions>
