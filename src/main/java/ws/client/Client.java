@@ -1,6 +1,9 @@
 package ws.client;
 
-import ws.server.bottomup.DocumentService;
+
+import ws.server.generated.DocumentWS;
+import ws.server.generated.DocumentsType;
+import ws.server.model.Document;
 
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
@@ -14,12 +17,44 @@ import java.net.URL;
 public class Client {
     public static void main(String[] args) throws MalformedURLException {
         URL url = new URL("http://localhost:8080/doc?wsdl");
-        QName qname = new QName("http://topdown.server.ws/", "DocumentWS");
+        QName qname = new QName("http://bottomup.server.ws/", "DocumentWSImplService");
         Service service = Service.create(url, qname);
-        DocumentService hello = service.getPort(DocumentService.class);
-        System.out.println(hello.getHelloString("LOLOLOL"));
+        DocumentWS hello = service.getPort(DocumentWS.class);
 
-        hello.createDoc(1,"sale", 44.0, "AAAAAA","AAAAAAAAAA");
-        System.out.println(hello.getDocumentById(1));
+        // add document
+        ws.server.generated.DocumentType documentType = new ws.server.generated.DocumentType();
+        documentType.setId(1);
+        documentType.setPurpose("TestPurpose");
+        documentType.setAmount(322.0);
+        documentType.setAccountFrom("AAAAAAAAAA");
+        documentType.setAccountTo("AAAAAAAAAA");
+
+        hello.addDocument(documentType);
+
+        documentType.setId(2);
+        documentType.setPurpose("TestPurpose2");
+        documentType.setAmount(222.0);
+        documentType.setAccountFrom("bbbbbbbbbb");
+        documentType.setAccountTo("bbbbbbbbbb");
+        hello.addDocument(documentType);
+
+
+        //get document
+        ws.server.generated.DocumentType getDocumentType = hello.getDocument(documentType.getId());
+        Document document = new Document();
+        document.setId(getDocumentType.getId());
+        document.setPurpose(getDocumentType.getPurpose());
+        document.setAmount(getDocumentType.getAmount());
+        document.setAccountFrom(getDocumentType.getAccountFrom());
+        document.setAccountTo(getDocumentType.getAccountTo());
+        System.out.println(document);
+
+        // delete document
+//        System.out.println(hello.deleteDocument(1));
+//        System.out.println(hello.getDocument(1));
+        // get all documents
+
+        DocumentsType allDocuments = hello.getAllDocuments();
+        System.out.println(allDocuments);
     }
 }

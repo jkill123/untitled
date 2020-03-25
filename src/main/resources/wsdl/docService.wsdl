@@ -1,119 +1,161 @@
-<definitions
-        xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-        xmlns:tns="http://bottomup.server.ws/"
-        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-        xmlns="http://schemas.xmlsoap.org/wsdl/"
-        xmlns:wsam="http://www.w3.org/1999/xhtml"
-        targetNamespace="http://bottomup.server.ws/"
-        name="DocumentServiceImplService">
-    <types>
-        <xsd:schema>
-            <xsd:import namespace="http://bottomup.server.ws/" schemaLocation="doc.xsd"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:tp="http://www.pinchuk.com/DocumentWS/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  name="DocumentWS"
+                  targetNamespace="http://www.pinchuk.com/DocumentWS/">
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://www.pinchuk.com/DocumentWS/"
+                    xmlns:Q1="http://www.pinchuk.com/DocumentSchema">
+            <xsd:import schemaLocation="doc.xsd" namespace="http://www.pinchuk.com/DocumentSchema"/>
+            <xsd:element name="AddDocument">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="AddRequest" type="Q1:DocumentType"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="AddDocumentResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="ResponseMessage" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="DeleteDocument">
+                <xsd:complexType>
+                    <xsd:sequence>
+
+                        <xsd:element name="DocumentID" type="xsd:int"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="DeleteDocumentResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+
+                        <xsd:element name="ResponseMessage" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="GetDocument">
+                <xsd:complexType>
+                    <xsd:sequence>
+
+                        <xsd:element name="DocumentId" type="xsd:int"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="GetDocumentResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+
+                        <xsd:element name="GetDocumentResponse" type="Q1:DocumentType"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="GetAllDocuments">
+                <xsd:complexType>
+                    <xsd:sequence>
+
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="GetAllDocumentsResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+
+                        <xsd:element name="GetDocumentsResponse" type="Q1:DocumentsType"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
         </xsd:schema>
-    </types>
-    <message name="deleteDoc">
-        <part name="parameters" element="tns:deleteDoc"/>
-    </message>
-    <message name="deleteDocResponse">
-        <part name="parameters" element="tns:deleteDocResponse"/>
-    </message>
-    <message name="getDocumentById">
-        <part name="parameters" element="tns:getDocumentById"/>
-    </message>
-    <message name="getDocumentByIdResponse">
-        <part name="parameters" element="tns:getDocumentByIdResponse"/>
-    </message>
-    <message name="getDocumentObjectList">
-        <part name="parameters" element="tns:getDocumentObjectList"/>
-    </message>
-    <message name="getDocumentObjectListResponse">
-        <part name="parameters" element="tns:getDocumentObjectListResponse"/>
-    </message>
-    <message name="getHelloString">
-        <part name="parameters" element="tns:getHelloString"/>
-    </message>
-    <message name="getHelloStringResponse">
-        <part name="parameters" element="tns:getHelloStringResponse"/>
-    </message>
-    <message name="createDoc">
-        <part name="parameters" element="tns:createDoc"/>
-    </message>
-    <message name="createDocResponse">
-        <part name="parameters" element="tns:createDocResponse"/>
-    </message>
-    <portType name="DocumentService">
-        <operation name="deleteDoc">
-            <input wsam:Action="http://bottomup.server.ws/DocumentService/deleteDocRequest" message="tns:deleteDoc"/>
-            <output wsam:Action="http://bottomup.server.ws/DocumentService/deleteDocResponse" message="tns:deleteDocResponse"/>
-        </operation>
-        <operation name="getDocumentById">
-            <input wsam:Action="http://bottomup.server.ws/DocumentService/getDocumentByIdRequest" message="tns:getDocumentById"/>
-            <output wsam:Action="http://bottomup.server.ws/DocumentService/getDocumentByIdResponse" message="tns:getDocumentByIdResponse"/>
-        </operation>
-        <operation name="getDocumentObjectList">
-            <input wsam:Action="http://bottomup.server.ws/DocumentService/getDocumentObjectListRequest" message="tns:getDocumentObjectList"/>
-            <output wsam:Action="http://bottomup.server.ws/DocumentService/getDocumentObjectListResponse" message="tns:getDocumentObjectListResponse"/>
-        </operation>
-        <operation name="getHelloString">
-            <input wsam:Action="http://bottomup.server.ws/DocumentService/getHelloStringRequest" message="tns:getHelloString"/>
-            <output wsam:Action="http://bottomup.server.ws/DocumentService/getHelloStringResponse" message="tns:getHelloStringResponse"/>
-        </operation>
-        <operation name="createDoc">
-            <input wsam:Action="http://bottomup.server.ws/DocumentService/createDocRequest" message="tns:createDoc"/>
-            <output wsam:Action="http://bottomup.server.ws/DocumentService/createDocResponse" message="tns:createDocResponse"/>
-        </operation>
-    </portType>
-    <binding name="DocumentServiceImplPortBinding" type="tns:DocumentService">
-        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-        <operation name="deleteDoc">
-            <soap:operation soapAction=""/>
-            <input>
+    </wsdl:types>
+    <wsdl:message name="AddDocumentRequest">
+        <wsdl:part element="tp:AddDocument" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="AddDocumentResponse">
+        <wsdl:part element="tp:AddDocumentResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="DeleteDocumentRequest">
+        <wsdl:part name="parameters" element="tp:DeleteDocument"/>
+    </wsdl:message>
+    <wsdl:message name="DeleteDocumentResponse">
+        <wsdl:part name="parameters" element="tp:DeleteDocumentResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GetDocumentRequest">
+        <wsdl:part name="parameters" element="tp:GetDocument"/>
+    </wsdl:message>
+    <wsdl:message name="GetDocumentResponse">
+        <wsdl:part name="parameters" element="tp:GetDocumentResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GetAllDocumentsRequest">
+        <wsdl:part name="parameters" element="tp:GetAllDocuments"/>
+    </wsdl:message>
+    <wsdl:message name="GetAllDocumentsResponse">
+        <wsdl:part name="parameters" element="tp:GetAllDocumentsResponse"/>
+    </wsdl:message>
+
+    <wsdl:portType name="DocumentWS">
+        <wsdl:operation name="AddDocument">
+            <wsdl:input message="tp:AddDocumentRequest"/>
+            <wsdl:output message="tp:AddDocumentResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="DeleteDocument">
+            <wsdl:input message="tp:DeleteDocumentRequest"/>
+            <wsdl:output message="tp:DeleteDocumentResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetDocument">
+            <wsdl:input message="tp:GetDocumentRequest"/>
+            <wsdl:output message="tp:GetDocumentResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetAllDocuments">
+            <wsdl:input message="tp:GetAllDocumentsRequest"/>
+            <wsdl:output message="tp:GetAllDocumentsResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="DocumentWSSOAP" type="tp:DocumentWS">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="AddDocument">
+            <soap:operation soapAction="http://www.pinchuk.com/DocumentWS/AddDocument"/>
+            <wsdl:input>
                 <soap:body use="literal"/>
-            </input>
-            <output>
+            </wsdl:input>
+            <wsdl:output>
                 <soap:body use="literal"/>
-            </output>
-        </operation>
-        <operation name="getDocumentById">
-            <soap:operation soapAction=""/>
-            <input>
+            </wsdl:output>
+        </wsdl:operation><wsdl:operation name="DeleteDocument">
+        <soap:operation soapAction="http://www.pinchuk.com/DocumentWS/DeleteDocument"/>
+        <wsdl:input>
+            <soap:body use="literal"/>
+        </wsdl:input>
+        <wsdl:output>
+            <soap:body use="literal"/>
+        </wsdl:output>
+
+    </wsdl:operation><wsdl:operation name="GetDocument">
+        <soap:operation soapAction="http://www.pinchuk.com/DocumentWS/GetDocument"/>
+        <wsdl:input>
+            <soap:body use="literal"/>
+        </wsdl:input>
+        <wsdl:output>
+            <soap:body use="literal"/>
+        </wsdl:output>
+    </wsdl:operation>
+        <wsdl:operation name="GetAllDocuments">
+            <soap:operation soapAction="http://www.pinchuk.com/DocumentWS/GetAllDocuments"/>
+            <wsdl:input>
                 <soap:body use="literal"/>
-            </input>
-            <output>
+            </wsdl:input>
+            <wsdl:output>
                 <soap:body use="literal"/>
-            </output>
-        </operation>
-        <operation name="getDocumentObjectList">
-            <soap:operation soapAction=""/>
-            <input>
-                <soap:body use="literal"/>
-            </input>
-            <output>
-                <soap:body use="literal"/>
-            </output>
-        </operation>
-        <operation name="getHelloString">
-            <soap:operation soapAction=""/>
-            <input>
-                <soap:body use="literal"/>
-            </input>
-            <output>
-                <soap:body use="literal"/>
-            </output>
-        </operation>
-        <operation name="createDoc">
-            <soap:operation soapAction=""/>
-            <input>
-                <soap:body use="literal"/>
-            </input>
-            <output>
-                <soap:body use="literal"/>
-            </output>
-        </operation>
-    </binding>
-    <service name="DocumentServiceImplService">
-        <port name="DocumentServiceImplPort" binding="tns:DocumentServiceImplPortBinding">
-            <soap:address location="http://localhost:8080/doc"/>
-        </port>
-    </service>
-</definitions>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="DocumentWS">
+        <wsdl:port binding="tp:DocumentWSSOAP" name="DocumentWSSOAP">
+            <soap:address location="http://www.example.org/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

@@ -42,9 +42,9 @@ public class DocumentRepository {
 
     public void deleteDocument(int id) {
         System.out.println("server delete document");
-        for(int i = 0; i< documentList.size(); i++){
-            if(documentList.get(i).getId() == id){
-                documentList.remove(id);
+        for (Document document : documentList) {
+            if (document.getId() == id) {
+               documentList.remove(document);
             }
         }
     }

@@ -1,6 +1,6 @@
 package ws.server.config;
 
-import ws.server.topdown.DocumentWSImpl;
+import ws.server.bottomup.DocumentWSImpl;
 
 import javax.xml.ws.Endpoint;
 
