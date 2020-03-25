@@ -1,6 +1,6 @@
 package ws.server.config;
 
-import ws.server.bottomup.DocumentServiceImpl;
+import ws.server.topdown.DocumentWSImpl;
 
 import javax.xml.ws.Endpoint;
 
@@ -10,6 +10,6 @@ import javax.xml.ws.Endpoint;
  */
 public class DocumentServicePublisher {
     public static void main(String[] args) {
-        Endpoint.publish("http://localhost:8080/doc", new DocumentServiceImpl());
+        Endpoint.publish("http://localhost:8080/doc", new DocumentWSImpl());
     }
 }
