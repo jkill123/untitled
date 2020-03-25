@@ -3,5 +3,5 @@
            version="2.0">
     <endpoint name="WebServiceImpl"
               implementation="ws.server.bottomup.DocumentWSImpl"
-              url-pattern="/pattern" />
+              url-pattern="/hello" />
 </endpoints>
