@@ -17,30 +17,32 @@
         </dependency>
 
     </dependencies>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>jaxws-maven-plugin</artifactId>
-                <version>2.5</version>
-                <executions>
-                    <execution>
-                        <id>document_wsdl</id>
-                        <configuration>
-                            <wsdlDirectory>${basedir}/src/main/resources/wsdl</wsdlDirectory>
-                            <wsdlUrls>
-                                <wsdlUrl>${basedir}/src/main/resources/wsdl/docService.wsdl</wsdlUrl>
-                            </wsdlUrls>
-                            <packageName>generated</packageName>
-                            <keep>true</keep>
-                            <sourceDestDir>${basedir}/src/main/java/ws/server</sourceDestDir>
-                        </configuration>
-                        <goals>
-                            <goal>wsimport</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+<!--    unncoment for generate after fix setters and to string in classes-->
+
+<!--    <build>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.codehaus.mojo</groupId>-->
+<!--                <artifactId>jaxws-maven-plugin</artifactId>-->
+<!--                <version>2.5</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>document_wsdl</id>-->
+<!--                        <configuration>-->
+<!--                            <wsdlDirectory>${basedir}/src/main/resources/wsdl</wsdlDirectory>-->
+<!--                            <wsdlUrls>-->
+<!--                                <wsdlUrl>${basedir}/src/main/resources/wsdl/docService.wsdl</wsdlUrl>-->
+<!--                            </wsdlUrls>-->
+<!--                            <packageName>ws.server.generated</packageName>-->
+<!--                            <keep>true</keep>-->
+<!--                            <sourceDestDir>${basedir}/src/main/java/</sourceDestDir>-->
+<!--                        </configuration>-->
+<!--                        <goals>-->
+<!--                            <goal>wsimport</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </build>-->
 </project>

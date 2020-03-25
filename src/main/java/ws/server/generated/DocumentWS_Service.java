@@ -1,8 +1,6 @@
 
 package ws.server.generated;
 
-import ws.server.generated.DocumentWS;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 import javax.xml.namespace.QName;

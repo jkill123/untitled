@@ -1,8 +1,6 @@
 
 package ws.server.generated;
 
-import ws.server.generated.DocumentsType;
-
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
@@ -33,8 +31,8 @@ public interface DocumentWS {
      */
     @WebMethod(operationName = "AddDocument", action = "http://www.pinchuk.com/DocumentWS/AddDocument")
     @WebResult(name = "ResponseMessage", targetNamespace = "")
-    @RequestWrapper(localName = "AddDocument", targetNamespace = "http://www.pinchuk.com/DocumentWS/", className = "generated.AddDocument")
-    @ResponseWrapper(localName = "AddDocumentResponse", targetNamespace = "http://www.pinchuk.com/DocumentWS/", className = "generated.AddDocumentResponse")
+    @RequestWrapper(localName = "AddDocument", targetNamespace = "http://www.pinchuk.com/DocumentWS/", className = "ws.server.generated.AddDocument")
+    @ResponseWrapper(localName = "AddDocumentResponse", targetNamespace = "http://www.pinchuk.com/DocumentWS/", className = "ws.server.generated.AddDocumentResponse")
     public String addDocument(
         @WebParam(name = "AddRequest", targetNamespace = "")
         DocumentType addRequest);
@@ -47,8 +45,8 @@ public interface DocumentWS {
      */
     @WebMethod(operationName = "DeleteDocument", action = "http://www.pinchuk.com/DocumentWS/DeleteDocument")
     @WebResult(name = "ResponseMessage", targetNamespace = "")
-    @RequestWrapper(localName = "DeleteDocument", targetNamespace = "http://www.pinchuk.com/DocumentWS/", className = "generated.DeleteDocument")
-    @ResponseWrapper(localName = "DeleteDocumentResponse", targetNamespace = "http://www.pinchuk.com/DocumentWS/", className = "generated.DeleteDocumentResponse")
+    @RequestWrapper(localName = "DeleteDocument", targetNamespace = "http://www.pinchuk.com/DocumentWS/", className = "ws.server.generated.DeleteDocument")
+    @ResponseWrapper(localName = "DeleteDocumentResponse", targetNamespace = "http://www.pinchuk.com/DocumentWS/", className = "ws.server.generated.DeleteDocumentResponse")
     public String deleteDocument(
         @WebParam(name = "DocumentID", targetNamespace = "")
         int documentID);
@@ -57,12 +55,12 @@ public interface DocumentWS {
      * 
      * @param documentId
      * @return
-     *     returns generated.DocumentType
+     *     returns ws.server.generated.DocumentType
      */
     @WebMethod(operationName = "GetDocument", action = "http://www.pinchuk.com/DocumentWS/GetDocument")
     @WebResult(name = "GetDocumentResponse", targetNamespace = "")
-    @RequestWrapper(localName = "GetDocument", targetNamespace = "http://www.pinchuk.com/DocumentWS/", className = "generated.GetDocument")
-    @ResponseWrapper(localName = "GetDocumentResponse", targetNamespace = "http://www.pinchuk.com/DocumentWS/", className = "generated.GetDocumentResponse")
+    @RequestWrapper(localName = "GetDocument", targetNamespace = "http://www.pinchuk.com/DocumentWS/", className = "ws.server.generated.GetDocument")
+    @ResponseWrapper(localName = "GetDocumentResponse", targetNamespace = "http://www.pinchuk.com/DocumentWS/", className = "ws.server.generated.GetDocumentResponse")
     public DocumentType getDocument(
         @WebParam(name = "DocumentId", targetNamespace = "")
         int documentId);
@@ -70,12 +68,12 @@ public interface DocumentWS {
     /**
      * 
      * @return
-     *     returns generated.DocumentsType
+     *     returns ws.server.generated.DocumentsType
      */
     @WebMethod(operationName = "GetAllDocuments", action = "http://www.pinchuk.com/DocumentWS/GetAllDocuments")
     @WebResult(name = "GetDocumentsResponse", targetNamespace = "")
-    @RequestWrapper(localName = "GetAllDocuments", targetNamespace = "http://www.pinchuk.com/DocumentWS/", className = "generated.GetAllDocuments")
-    @ResponseWrapper(localName = "GetAllDocumentsResponse", targetNamespace = "http://www.pinchuk.com/DocumentWS/", className = "generated.GetAllDocumentsResponse")
+    @RequestWrapper(localName = "GetAllDocuments", targetNamespace = "http://www.pinchuk.com/DocumentWS/", className = "ws.server.generated.GetAllDocuments")
+    @ResponseWrapper(localName = "GetAllDocumentsResponse", targetNamespace = "http://www.pinchuk.com/DocumentWS/", className = "ws.server.generated.GetAllDocumentsResponse")
     public DocumentsType getAllDocuments();
 
 }

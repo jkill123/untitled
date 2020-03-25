@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="Documents" type="{http://www.pinchuk.com/DocumentSchema}DocumentType" maxOccurs="unbounded"/>
+ *         &lt;element name="Documents" type="{http://www.pinchuk.com/DocumentSchema}DocumentType" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -34,7 +34,7 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class DocumentsType {
 
-    @XmlElement(name = "Documents", namespace = "http://www.pinchuk.com/DocumentSchema", required = true)
+    @XmlElement(name = "Documents", namespace = "http://www.pinchuk.com/DocumentSchema")
     protected List<DocumentType> documents;
 
     /**
